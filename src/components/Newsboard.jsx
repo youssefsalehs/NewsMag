@@ -3,7 +3,7 @@ import Newsitem from "./Newsitem";
 function Newsboard({ articles, toggleTheme, theme }) {
   return (
     <div>
-      <h1 className="text-center mb-5 mt-5">
+      <h1 className="text-center mb-2" style={{ marginTop: "7rem" }}>
         latest{" "}
         <span
           className={`badge text-light text-bg-primary ${
@@ -29,8 +29,8 @@ function Newsboard({ articles, toggleTheme, theme }) {
         style={{
           fontSize: "2rem",
           position: "fixed",
-          bottom: "1rem",
-          right: "1rem",
+          top: "5.2rem",
+          right: ".2rem",
           border: "none",
           borderRadius: "50%",
           paddingLeft: "7px",

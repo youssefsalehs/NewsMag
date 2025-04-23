@@ -1,15 +1,23 @@
-function Navbar({ setcategory, theme, category }) {
+function Navbar({
+  setcategory,
+  theme,
+  category,
+  setcountry,
+  activated,
+  setactivated,
+}) {
   return (
     <nav
       className="navbar navbar-expand-lg bg-body-tertiar bg-primary"
       // data-bs-theme="light"
+      style={{ position: "fixed", top: "0", zIndex: "1000", width: "100%" }}
     >
       <div className="container-fluid">
         <a className="navbar-brand">
           <span
-            className={`badge fs-3 ${theme === "light" ? "" : "dark-mode"}`}
+            className={`badge fs-2 ${theme === "light" ? "" : "dark-mode"}`}
           >
-            NewsMag
+            NewsMag <span className="fs-6">{activated}</span>
           </span>
         </a>
         <button
@@ -44,6 +52,45 @@ function Navbar({ setcategory, theme, category }) {
                 </a>
               </li>
             ))}
+            {
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Country
+                </a>
+                <ul className="dropdown-menu">
+                  {[
+                    "India in",
+                    "USA us",
+                    "Australia au",
+                    "Russia ru",
+                    "France fr",
+                    "United-Kingdom gb",
+                  ].map((cntry) => {
+                    const [name, code] = cntry.split(" ");
+                    return (
+                      <li key={code}>
+                        <a
+                          className={`dropdown-item`}
+                          onClick={() => {
+                            setcountry(code);
+                            setactivated(code);
+                          }}
+                          role="button"
+                        >
+                          {name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            }
           </ul>
         </div>
       </div>
