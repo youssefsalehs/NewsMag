@@ -59,16 +59,13 @@ function App() {
       <Navbar
         setcategory={setcategory}
         theme={theme}
+        toggleTheme={toggleTheme}
         category={category}
         setcountry={setcountry}
         activated={activated}
         setactivated={setactivated}
       />
-      <Newsboard
-        articles={paginatedArticles}
-        toggleTheme={toggleTheme}
-        theme={theme}
-      />
+      <Newsboard articles={paginatedArticles} theme={theme} />
       <Pagination
         page={page}
         setpage={setpage}
